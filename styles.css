@@ -26,3 +26,4 @@
 .contact-emails { display:flex; flex-direction:column; align-items:flex-end; gap:.25rem; }
 @media (max-width: 720px) { .contact-emails { align-items:flex-start; } }
 .paper.paper-text-only { display: block; }
+#industry .industry-feature + .industry-feature { margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--line); }
