@@ -21,3 +21,20 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
     });
   });
 });
+
+// Publication rows: "Abs" reveals the summary; "N more authors" swaps in the full author list.
+document.querySelectorAll('[data-toggle-abs]').forEach(button => {
+  button.addEventListener('click', () => {
+    const abstract = button.closest('.pub-body')?.querySelector('.pub-abstract');
+    if (!abstract) return;
+    abstract.hidden = !abstract.hidden;
+    button.setAttribute('aria-expanded', String(!abstract.hidden));
+  });
+});
+document.querySelectorAll('[data-more-authors]').forEach(button => {
+  button.addEventListener('click', () => {
+    const wrapper = button.closest('.pub-authors');
+    wrapper?.querySelector('.authors-short')?.setAttribute('hidden', '');
+    wrapper?.querySelector('.authors-full')?.removeAttribute('hidden');
+  });
+});
